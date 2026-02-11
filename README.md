@@ -385,15 +385,6 @@ Special thanks to:
 
 ---
 
-## 📞 Contact
-
-For questions or feedback about this project:
-- **Project Repository**: [Add your repository link]
-- **Email**: [Your email]
-- **LinkedIn**: [Your LinkedIn profile]
-
----
-
 **Made with ❤️ and lots of ☕**
 
 *This project demonstrates proficiency in HTML5, CSS3, JavaScript, responsive design, UI/UX principles, and modern web development practices.*
