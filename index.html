@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduVerse - Premium Learning Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">EduVerse</div>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                <li><a href="#" class="nav-link" data-page="dashboard">Dashboard</a></li>
+                <li><a href="#" class="nav-link" data-page="courses">My Courses</a></li>
+            </ul>
+            <div class="user-section">
+                <div class="user-avatar">JS</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <div class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Discover Your<br>Learning Journey</h1>
+                    <p>Explore thousands of courses from world-class instructors and transform your skills with our immersive learning platform.</p>
+                    <div class="search-bar">
+                        <input type="text" placeholder="What do you want to learn today?" id="searchInput">
+                        <button class="btn btn-primary" onclick="searchCourses()">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="filters">
+                <button class="filter-btn active" onclick="filterCourses('all')">All Courses</button>
+                <button class="filter-btn" onclick="filterCourses('design')">Design</button>
+                <button class="filter-btn" onclick="filterCourses('development')">Development</button>
+                <button class="filter-btn" onclick="filterCourses('business')">Business</button>
+                <button class="filter-btn" onclick="filterCourses('marketing')">Marketing</button>
+                <button class="filter-btn" onclick="filterCourses('photography')">Photography</button>
+            </div>
+
+            <div class="courses-grid" id="coursesGrid">
+                <!-- Course cards will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Page -->
+    <div id="dashboard" class="page">
+        <div class="container">
+            <div class="dashboard-header">
+                <h1>Welcome back, John!</h1>
+                <p style="font-size: 1.1rem; opacity: 0.7;">Track your learning progress and continue where you left off.</p>
+            </div>
+
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-label">Courses Enrolled</div>
+                    <div class="stat-value">12</div>
+                    <span class="stat-change">+3 this month</span>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Hours Learned</div>
+                    <div class="stat-value">87</div>
+                    <span class="stat-change">+15 this week</span>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Certificates</div>
+                    <div class="stat-value">5</div>
+                    <span class="stat-change">+2 earned</span>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Current Streak</div>
+                    <div class="stat-value">14</div>
+                    <span class="stat-change">days</span>
+                </div>
+            </div>
+
+            <div class="continue-section">
+                <h2 class="section-title">Continue Learning</h2>
+                <div id="continueCards">
+                    <!-- Continue learning cards will be inserted here -->
+                </div>
+            </div>
+
+            <div class="continue-section">
+                <h2 class="section-title">Recent Achievements</h2>
+                <div class="achievements">
+                    <div class="achievement">
+                        <div class="achievement-icon">🏆</div>
+                        <div class="achievement-title">Course Completed</div>
+                        <div class="achievement-desc">Finished Advanced UI Design</div>
+                    </div>
+                    <div class="achievement">
+                        <div class="achievement-icon">🔥</div>
+                        <div class="achievement-title">Week Streak</div>
+                        <div class="achievement-desc">14 days in a row</div>
+                    </div>
+                    <div class="achievement">
+                        <div class="achievement-icon">⭐</div>
+                        <div class="achievement-title">Top Learner</div>
+                        <div class="achievement-desc">Top 10% this month</div>
+                    </div>
+                    <div class="achievement">
+                        <div class="achievement-icon">📚</div>
+                        <div class="achievement-title">Knowledge Seeker</div>
+                        <div class="achievement-desc">Enrolled in 10+ courses</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Course Video Page -->
+    <div id="courses" class="page">
+        <div class="container">
+            <div class="video-container">
+                <div class="video-player-section">
+                    <div class="video-player">
+                        <div class="video-placeholder">
+                            <div class="play-button" onclick="playVideo()"></div>
+                        </div>
+                    </div>
+                    <div class="video-controls">
+                        <div class="video-progress-bar" onclick="seekVideo(event)">
+                            <div class="video-progress-fill" id="videoProgress"></div>
+                        </div>
+                        <div class="video-time">
+                            <span id="currentTime">12:45</span>
+                            <span id="duration">36:20</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-content-sidebar">
+                    <h3 class="sidebar-title">Course Content</h3>
+                    <ul class="lesson-list">
+                        <li class="lesson-item completed">
+                            <div class="lesson-title">1. Introduction to UI Design</div>
+                            <div class="lesson-duration">15:30</div>
+                        </li>
+                        <li class="lesson-item completed">
+                            <div class="lesson-title">2. Design Principles</div>
+                            <div class="lesson-duration">22:15</div>
+                        </li>
+                        <li class="lesson-item active">
+                            <div class="lesson-title">3. Color Theory & Typography</div>
+                            <div class="lesson-duration">36:20</div>
+                        </li>
+                        <li class="lesson-item">
+                            <div class="lesson-title">4. Layout & Composition</div>
+                            <div class="lesson-duration">28:45</div>
+                        </li>
+                        <li class="lesson-item">
+                            <div class="lesson-title">5. Responsive Design</div>
+                            <div class="lesson-duration">31:10</div>
+                        </li>
+                        <li class="lesson-item">
+                            <div class="lesson-title">6. Design Systems</div>
+                            <div class="lesson-duration">42:30</div>
+                        </li>
+                        <li class="lesson-item">
+                            <div class="lesson-title">7. Prototyping & Testing</div>
+                            <div class="lesson-duration">38:20</div>
+                        </li>
+                        <li class="lesson-item">
+                            <div class="lesson-title">8. Final Project</div>
+                            <div class="lesson-duration">45:00</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="video-description">
+                <div class="tabs">
+                    <div class="tab active" onclick="switchTab('overview')">Overview</div>
+                    <div class="tab" onclick="switchTab('resources')">Resources</div>
+                    <div class="tab" onclick="switchTab('notes')">My Notes</div>
+                </div>
+
+                <div class="tab-content active" id="overview">
+                    <h2>Color Theory & Typography</h2>
+                    <p>In this comprehensive lesson, we'll dive deep into the fundamentals of color theory and how to effectively use typography in your designs. Understanding color psychology and the impact of different typefaces is crucial for creating compelling user interfaces.</p>
+                    <p>We'll explore color harmonies, contrast ratios, accessibility considerations, and best practices for font pairing. By the end of this lesson, you'll be able to make confident decisions about color palettes and typography that elevate your design work.</p>
+                    <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-family: 'Cormorant Garamond', serif;">Key Takeaways:</h3>
+                    <p>• Understanding color theory basics and psychology<br>
+                    • Creating harmonious color palettes<br>
+                    • Mastering typography hierarchy<br>
+                    • Font pairing techniques<br>
+                    • Accessibility and WCAG compliance</p>
+                </div>
+
+                <div class="tab-content" id="resources">
+                    <h2>Course Resources</h2>
+                    <p>Download the following resources to follow along with this lesson:</p>
+                    <p>• Color palette templates (Figma)<br>
+                    • Typography guidelines PDF<br>
+                    • Font pairing examples<br>
+                    • Accessibility checklist<br>
+                    • Practice exercises</p>
+                </div>
+
+                <div class="tab-content" id="notes">
+                    <h2>My Notes</h2>
+                    <textarea style="width: 100%; min-height: 200px; padding: 1rem; border: 2px solid var(--sand); border-radius: 15px; font-family: 'DM Sans', sans-serif; font-size: 1rem; resize: vertical;" placeholder="Take notes while learning..."></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
